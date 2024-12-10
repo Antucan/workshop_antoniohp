@@ -1,0 +1,7 @@
+{
+    "require": {
+        "intervention/image": "^3.9",
+        "monolog/monolog": "^3.8",
+        "ramsey/uuid": "^4.7"
+    }
+}
