@@ -1,6 +1,6 @@
 <?php
 namespace workshop_antoniohp\src\view;
-class ViewReparation
+class viewReparation
 {
     public function render($model)
     {
@@ -18,10 +18,10 @@ class ViewReparation
 </head>
 
 <body>
-    <form method="post" action="../controller/controllerReparation.php" name="formSearchReparation">
+    <form method="POST" action="../controller/controllerReparation.php" name="formSearchReparation">
         <h1>Car Workshop</h1>
         <h2>Search car reparation</h2>
-        ID reparation number: <input type="text" name="uuid">
+        ID reparation number: <input type="text" id="uuid" name="uuid">
         <input type="submit" value="search" name="getReparation">
     </form>
 </body>

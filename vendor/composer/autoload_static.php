@@ -11,6 +11,10 @@ class ComposerStaticInit5ecbabff5f374cf0a6ff2146b68b0b1b
     );
 
     public static $prefixLengthsPsr4 = array (
+        'w' => 
+        array (
+            'workshop_antoniohp\\' => 19,
+        ),
         'R' => 
         array (
             'Ramsey\\Uuid\\' => 12,
@@ -36,6 +40,10 @@ class ComposerStaticInit5ecbabff5f374cf0a6ff2146b68b0b1b
     );
 
     public static $prefixDirsPsr4 = array (
+        'workshop_antoniohp\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',

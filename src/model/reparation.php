@@ -1,6 +1,6 @@
 <?php
 namespace workshop_antoniohp\src\model;
-class Reparation
+class reparation
 {
     public $id_reparation;
     public $id_workshop;

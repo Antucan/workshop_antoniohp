@@ -2,7 +2,9 @@
 namespace workshop_antoniohp\src\service;
 
 use workshop_antoniohp\src\model\reparation;
-require_once __DIR__ . '/../vendor/autoload.php';
+use workshop_antoniohp\src\view\ViewReparation;
+
+require '../../vendor/autoload.php';
 class serviceReparation
 {
     public $mysqli;
