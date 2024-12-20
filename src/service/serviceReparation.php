@@ -1,10 +1,9 @@
 <?php
-namespace workshop_antoniohp\src\service;
-
-use workshop_antoniohp\src\model\reparation;
-use workshop_antoniohp\src\view\ViewReparation;
-
+namespace workshop_antoniohp\service;
 require '../../vendor/autoload.php';
+
+use workshop_antoniohp\model\reparation;
+
 class serviceReparation
 {
     public $mysqli;
@@ -27,7 +26,8 @@ class serviceReparation
 
     function getReparation($role, $idReparation): Reparation
     {
-        $stmt = $this->mysqli->prepare("SELECT * FROM reparation WHERE idReparation = ?");
+        $this->connect();
+        $stmt = $this->mysqli->prepare("SELECT * FROM reparation WHERE id_reparation = ?");
         $stmt->bind_param("s", $idReparation);
         $stmt->execute();
 
@@ -36,7 +36,7 @@ class serviceReparation
 
         $reparation = new Reparation(
             $result["id_workshop"],
-            $result["idReparation"],
+            $result["id_reparation"],
             $result["name_workshop"],
             $result["register_date"],
             $result["vLicense"]

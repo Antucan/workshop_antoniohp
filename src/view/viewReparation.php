@@ -1,10 +1,14 @@
 <?php
-namespace workshop_antoniohp\src\view;
+namespace workshop_antoniohp\view;
 class viewReparation
 {
     public function render($model)
     {
-        
+        echo "<h3>" . $model->getId_workshop() . "</h3>";
+        echo "<h3>" . $model->getId_reparation() . "</h3>";
+        echo "<h3>" . $model->getName_workshop() . "</h3>";
+        echo "<h3>" . $model->getRegister_date() . "</h3>";
+        echo "<h3>" . $model->getVLicense() . "</h3>";
     }
 }
 ?>
@@ -18,11 +22,16 @@ class viewReparation
 </head>
 
 <body>
+    <h1>Car Workshop</h1>
     <form method="POST" action="../controller/controllerReparation.php" name="formSearchReparation">
-        <h1>Car Workshop</h1>
         <h2>Search car reparation</h2>
         ID reparation number: <input type="text" id="uuid" name="uuid">
         <input type="submit" value="search" name="getReparation">
+    </form>
+    <form method="POST" action="../controller/controllerReparation.php" name="formInsertReparation">
+        <h2>Insert car reparation</h2>
+        
+        <input type="submit" value="search" name="setReparation">
     </form>
 </body>
 

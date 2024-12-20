@@ -1,5 +1,5 @@
 <?php
-namespace workshop_antoniohp\src\model;
+namespace workshop_antoniohp\model;
 class reparation
 {
     public $id_reparation;
