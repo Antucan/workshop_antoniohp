@@ -32,14 +32,19 @@ function getReparation()
 
 function setReparation()
 {
-    $workshopId = $_SESSION['workshopId'];
-    $workshopName = $_SESSION['workshopName'];
-    $registerDate = $_SESSION['registerDate'];
-    $licensePlate = $_SESSION['licensePlate'];
+    $workshopId = $_POST['workshopId'];
+    $workshopName = $_POST['workshopName'];
+    $registerDate = $_POST['registerDate'];
+    $licensePlate = $_POST['licensePlate'];
 
     $service = new serviceReparation();
-    $reparation = $service->setReparation($workshopId, 
-    $workshopName, $registerDate, $licensePlate);
+    $reparation = $service->setReparation(
+        $workshopId,
+        $workshopName,
+        $registerDate,
+        $licensePlate
+    );
+    $view = new viewReparation();
+    //$view->render($reparation);
 
-    
 }

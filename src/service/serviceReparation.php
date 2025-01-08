@@ -22,9 +22,14 @@ class serviceReparation
     {
         $this->connect();
         //generar uuid
+        $uuid = Uuid::uuid4()->toString();
         //crear objeto new Reparation
+        $reparation = new reparation($uuid, $workshopId, $workshopName, register_date: $registerDate, vLicense: $licensePlate);
         //insertar en bbdd
+        $query = "INSERT INTO reparation (id_workshop, id_reparation, name_workshop, register_date, vLicense) 
+        VALUES ('$workshopId', '$uuid', '$workshopName', '$registerDate', '$licensePlate')";
         //devolver al controlador tipo Reapartion
+        
     }
 
     function getReparation($role, $idReparation): Reparation
