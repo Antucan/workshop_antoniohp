@@ -14,8 +14,8 @@ if (isset($_POST["getReparation"])) {
     getReparation();
 }
 
-if (isset($_POST["insertReparation"])) {
-    insertReparation();
+if (isset($_POST["setReparation"])) {
+    setReparation();
 }
 
 function getReparation()
@@ -30,7 +30,16 @@ function getReparation()
     $view->render($role, $reparation);
 }
 
-function insertReparation()
+function setReparation()
 {
+    $workshopId = $_SESSION['workshopId'];
+    $workshopName = $_SESSION['workshopName'];
+    $registerDate = $_SESSION['registerDate'];
+    $licensePlate = $_SESSION['licensePlate'];
+
+    $service = new serviceReparation();
+    $reparation = $service->setReparation($workshopId, 
+    $workshopName, $registerDate, $licensePlate);
+
+    
 }
-//connect();

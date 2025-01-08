@@ -3,6 +3,7 @@ namespace workshop_antoniohp\service;
 require '../../vendor/autoload.php';
 
 use workshop_antoniohp\model\reparation;
+use Ramsey\Uuid\Uuid;
 
 class serviceReparation
 {
@@ -17,10 +18,13 @@ class serviceReparation
         }
     }
 
-    function insertReparation()
+    function setReparation($workshopId, $workshopName, $registerDate, $licensePlate)
     {
         $this->connect();
-        $sql = "INSERT INTO reparation (id_workshop, name_workshop, register_date, vLicense)";
+        //generar uuid
+        //crear objeto new Reparation
+        //insertar en bbdd
+        //devolver al controlador tipo Reapartion
     }
 
     function getReparation($role, $idReparation): Reparation
