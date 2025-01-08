@@ -12,7 +12,6 @@ class serviceReparation
         $db = parse_ini_file("../../conf/db_conf.ini");
         try {
             $this->mysqli = new \mysqli($db["host"], $db["user"], $db["pwd"], $db["db_name"]);
-            echo "Connected to db correctly!";
         } catch (\Throwable $th) {
             return "Error connection db!";
         }

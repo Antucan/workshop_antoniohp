@@ -20,16 +20,14 @@ if (isset($_POST["insertReparation"])) {
 
 function getReparation()
 {
-    //echo __LINE__;
-    // $role = $_SESSION['role'];
-    $role = 1;
+    $role = $_SESSION['role'];
     $idReparation = $_POST['uuid'];
 
     $service = new serviceReparation();
     $reparation = $service->getReparation($role, $idReparation);
 
     $view = new viewReparation();
-    $view->render($reparation);
+    $view->render($role, $reparation);
 }
 
 function insertReparation()

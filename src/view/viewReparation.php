@@ -1,14 +1,20 @@
 <?php
 namespace workshop_antoniohp\view;
+if (isset($_POST['role'])) {
+    session_start();
+    $_SESSION['role'] = $_POST['role'];
+    $role = $_SESSION['role'];
+}
+
 class viewReparation
 {
-    public function render($model)
+    public function render($role, $model)
     {
-        echo "<h3>" . $model->getId_workshop() . "</h3>";
-        echo "<h3>" . $model->getId_reparation() . "</h3>";
-        echo "<h3>" . $model->getName_workshop() . "</h3>";
-        echo "<h3>" . $model->getRegister_date() . "</h3>";
-        echo "<h3>" . $model->getVLicense() . "</h3>";
+        echo "<h4>Id Workshop: </h4><p>" . $model->getId_workshop() . "</p>";
+        echo "<h4>Id Reparation: </h4><p>" . $model->getId_reparation() . "</p>";
+        echo "<h4>Name Workshop: </h4><p>" . $model->getName_workshop() . "</p>";
+        echo "<h4>Register Date: </h4><p>" . $model->getRegister_date() . "</p>";
+        echo "<h4>License: </h4><p>" . $model->getVLicense() . "</p>";
     }
 }
 ?>
@@ -28,11 +34,16 @@ class viewReparation
         ID reparation number: <input type="text" id="uuid" name="uuid">
         <input type="submit" value="search" name="getReparation">
     </form>
-    <form method="POST" action="../controller/controllerReparation.php" name="formInsertReparation">
-        <h2>Insert car reparation</h2>
-        
-        <input type="submit" value="search" name="setReparation">
-    </form>
+    <?php
+    if (isset($_POST['role']) && $_POST['role'] == 'employee') {
+        ?>
+        <form method="POST" action="../controller/controllerReparation.php" name="formInsertReparation">
+            <h2>Insert car reparation</h2>
+            <input type="submit" value="set" name="setReparation">
+        </form>
+        <?php
+    }
+    ?>
 </body>
 
 </html>
