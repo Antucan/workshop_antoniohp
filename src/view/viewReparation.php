@@ -36,7 +36,7 @@ class viewReparation
     </form>
     <?php
     if (isset($_POST['role']) && $_POST['role'] == 'employee') {
-    ?>
+        ?>
         <form method="POST" action="../controller/controllerReparation.php" name="formInsertReparation">
             <h2>Create car reparation</h2>
             <label for="workshopId">Workshop ID (4 digits):</label>
@@ -50,9 +50,10 @@ class viewReparation
             <input type="text" id="licensePlate" name="licensePlate" pattern="\d{4}[A-Z]{3}"><br>
             <input type="submit" value="set" name="setReparation">
         </form>
-    <?php
+        <?php
     }
     ?>
+    <button onclick="window.location.href='../../src/'">RETURN</button>
 </body>
 
 </html>
