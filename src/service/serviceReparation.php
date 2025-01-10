@@ -1,10 +1,14 @@
 <?php
+
 namespace workshop_antoniohp\service;
+
 require '../../vendor/autoload.php';
 
 use workshop_antoniohp\model\reparation;
 use Ramsey\Uuid\Uuid;
 
+// $log = new Monolog\Logger('workshop_log');
+// $log->pushHandler(new Monolog\Handler\StreamHandler(''))
 class serviceReparation
 {
     public $mysqli;
@@ -29,7 +33,12 @@ class serviceReparation
         $query = "INSERT INTO reparation (id_workshop, id_reparation, name_workshop, register_date, vLicense) 
         VALUES ('$workshopId', '$uuid', '$workshopName', '$registerDate', '$licensePlate')";
         //devolver al controlador tipo Reapartion
-        
+        try {
+            $this->mysqli->query($query);
+            // $this->log->info("Record inserted successfully");
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     function getReparation($role, $idReparation): Reparation
@@ -52,4 +61,3 @@ class serviceReparation
         return $reparation;
     }
 }
-
