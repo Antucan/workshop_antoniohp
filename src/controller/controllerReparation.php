@@ -27,7 +27,7 @@ function getReparation()
     $reparation = $service->getReparation($role, $idReparation);
 
     $view = new viewReparation();
-    $view->render($role, $reparation);
+    $view->render($reparation);
 }
 
 function setReparation()
@@ -45,6 +45,6 @@ function setReparation()
         $licensePlate
     );
     $view = new viewReparation();
-    //$view->render($reparation);
+    $view->render($reparation);
 
 }

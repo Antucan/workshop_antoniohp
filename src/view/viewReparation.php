@@ -1,5 +1,7 @@
 <?php
+
 namespace workshop_antoniohp\view;
+
 if (isset($_POST['role'])) {
     session_start();
     $_SESSION['role'] = $_POST['role'];
@@ -7,13 +9,12 @@ if (isset($_POST['role'])) {
 }
 class viewReparation
 {
-    public function render($role, $model)
+    public function render($reparation)
     {
-        echo "<h4>Id Workshop: </h4><p>" . $model->getId_workshop() . "</p>";
-        echo "<h4>Id Reparation: </h4><p>" . $model->getId_reparation() . "</p>";
-        echo "<h4>Name Workshop: </h4><p>" . $model->getName_workshop() . "</p>";
-        echo "<h4>Register Date: </h4><p>" . $model->getRegister_date() . "</p>";
-        echo "<h4>License: </h4><p>" . $model->getVLicense() . "</p>";
+        echo "<h4>Id Workshop: </h4><p>" . $reparation->getId_workshop() . "</p>";
+        echo "<h4>Name Workshop: </h4><p>" . $reparation->getName_workshop() . "</p>";
+        echo "<h4>Register Date: </h4><p>" . $reparation->getRegister_date() . "</p>";
+        echo "<h4>License: </h4><p>" . $reparation->getVLicense() . "</p>";
     }
 }
 ?>
@@ -35,7 +36,7 @@ class viewReparation
     </form>
     <?php
     if (isset($_POST['role']) && $_POST['role'] == 'employee') {
-        ?>
+    ?>
         <form method="POST" action="../controller/controllerReparation.php" name="formInsertReparation">
             <h2>Create car reparation</h2>
             <label for="workshopId">Workshop ID (4 digits):</label>
@@ -49,7 +50,7 @@ class viewReparation
             <input type="text" id="licensePlate" name="licensePlate" pattern="\d{4}[A-Z]{3}"><br>
             <input type="submit" value="set" name="setReparation">
         </form>
-        <?php
+    <?php
     }
     ?>
 </body>
