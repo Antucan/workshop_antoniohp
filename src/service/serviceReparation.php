@@ -14,7 +14,10 @@ use Monolog\Handler\StreamHandler;
 // $log->pushHandler(new StreamHandler('../logs/app_workshop.log', Level::Info));
 class serviceReparation
 {
-
+function __construct(){
+    $this->initLog();
+    $this->connect();
+}
     public $mysqli;
     function connect()
     {

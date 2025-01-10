@@ -31,7 +31,7 @@ class viewReparation
     <h1>Car Workshop</h1>
     <form method="POST" action="../controller/controllerReparation.php" name="formSearchReparation">
         <h2>Search car reparation</h2>
-        ID reparation number: <input type="text" id="uuid" name="uuid">
+        ID reparation number: <input type="text" id="uuid" name="uuid" required>
         <input type="submit" value="search" name="getReparation">
     </form>
     <?php
