@@ -27,11 +27,13 @@ function getReparation()
     $reparation = $service->getReparation($role, $idReparation);
 
     $view = new viewReparation();
-    $view->render($reparation);
+    $view->render($reparation, $role);
 }
 
 function setReparation()
 {
+    $role = $_SESSION['role'];
+
     $workshopId = $_POST['workshopId'];
     $workshopName = $_POST['workshopName'];
     $registerDate = $_POST['registerDate'];
@@ -45,6 +47,6 @@ function setReparation()
         $licensePlate
     );
     $view = new viewReparation();
-    $view->render($reparation);
+    $view->render($reparation, $role);
 
 }

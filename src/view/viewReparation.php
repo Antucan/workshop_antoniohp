@@ -9,12 +9,16 @@ if (isset($_POST['role'])) {
 }
 class viewReparation
 {
-    public function render($reparation)
+    public function render($reparation, $role)
     {
         echo "<h4>Id Workshop: </h4><p>" . $reparation->getId_workshop() . "</p>";
         echo "<h4>Name Workshop: </h4><p>" . $reparation->getName_workshop() . "</p>";
         echo "<h4>Register Date: </h4><p>" . $reparation->getRegister_date() . "</p>";
-        echo "<h4>License: </h4><p>" . $reparation->getVLicense() . "</p>";
+        if ($role == 'client') {
+            echo "<h4>License: </h4><p>XXXX-XXX</p>";
+        } else {
+            echo "<h4>License: </h4><p>" . $reparation->getVLicense() . "</p>";
+        }
     }
 }
 ?>
@@ -31,12 +35,12 @@ class viewReparation
     <h1>Car Workshop</h1>
     <form method="POST" action="../controller/controllerReparation.php" name="formSearchReparation">
         <h2>Search car reparation</h2>
-        ID reparation number: <input type="text" id="uuid" name="uuid" required>
+        ID reparation number: <input type="text" id="uuid" name="uuid" minlength="36" maxlength="36" required>
         <input type="submit" value="search" name="getReparation">
     </form>
     <?php
     if (isset($_POST['role']) && $_POST['role'] == 'employee') {
-        ?>
+    ?>
         <form method="POST" action="../controller/controllerReparation.php" name="formInsertReparation">
             <h2>Create car reparation</h2>
             <label for="workshopId">Workshop ID (4 digits):</label>
@@ -50,7 +54,7 @@ class viewReparation
             <input type="text" id="licensePlate" name="licensePlate" pattern="\d{4}[A-Z]{3}"><br>
             <input type="submit" value="set" name="setReparation">
         </form>
-        <?php
+    <?php
     }
     ?>
     <button onclick="window.location.href='../../src/'">RETURN</button>
